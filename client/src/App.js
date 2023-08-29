@@ -54,7 +54,7 @@ const App = () => {
         <div className={classes.wrapper}>
             
             <AppBar className={classes.appBar}  position="static" color="inherit">
-            <Typography variant="h1" align="center" >Video chat</Typography>
+            <Typography variant="h1" align="center" >Video chat </Typography>
             </AppBar>
 
             
@@ -68,3 +68,8 @@ const App = () => {
     );
 }
 export default App;
+
+
+
+
+

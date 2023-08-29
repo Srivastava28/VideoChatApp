@@ -55,7 +55,9 @@ const useStyles = makeStyles((theme) => ({
       
     },
    }));
-
+const showalert=()=>{
+    alert('id copied')
+}
 
 const Options = ({children}) =>{
     const {me, callAccepted, name, setName, callEnded, leaveCall, callUser  } = useContext(SocketContext);
@@ -63,14 +65,14 @@ const Options = ({children}) =>{
     const classes = useStyles();
     return(
         <Container className={classes.container} >
-            <paper elevation={10} className={classes.paper}>
+            <Paper elevation={10} className={classes.paper}>
                 <form className={classes.root} noValidate autoComplete="off">
                     <Grid container className={classes.gridContainer}>
                         <Grid item xs={12} md={6} className={classes.padding}>
                             <Typography gutterBottom variant='h6'>Account Info</Typography>
                             <TextField label='Name' value={name} onChange={(e)=> setName(e.target.value)} fullWidth/>
                             <CopyToClipboard text={me} className={classes.margin}>
-                                <Button variant='contained' color='primary' fullWidth startIcon={<AssignmentIcon fontSize="large"/>}>
+                                <Button variant='contained' color='primary' fullWidth startIcon={<AssignmentIcon fontSize="large"/>} onClick={showalert}>
                                     Copy Your ID
                                 </Button>
 
@@ -103,7 +105,7 @@ const Options = ({children}) =>{
 
                 </form>
                 {children}
-            </paper>
+            </Paper>
 
          
            
@@ -112,3 +114,8 @@ const Options = ({children}) =>{
 }
 
 export default Options;
+
+
+
+
+

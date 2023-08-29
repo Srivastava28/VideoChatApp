@@ -1,17 +1,19 @@
 import React, {useContext} from "react";
 
 
-import Paper from "@mui/material";
+import {Paper} from "@mui/material";
 import { Grid } from "@mui/material";
 import Typography from '@mui/material/Typography';
 import { makeStyles } from "@mui/styles";
 
 import { SocketContext } from "../SocketContext";
+import { ContextProvider } from "../SocketContext";
 
 
 const useStyles = makeStyles((theme) => ({
     video: {
       width: '650px',
+      
 
 
       "@media (max-width: 1440px)": {
@@ -38,10 +40,13 @@ const useStyles = makeStyles((theme) => ({
       
     },
     paper: {
-      padding: '10px',
-      border: '2px solid black',
+      padding: '7px',
+      border: '5px solid black',
       margin: '10px',
-      background: "white",
+      // background: "",
+
+    
+ 
     },
   }));
 
@@ -54,12 +59,12 @@ const Videoplayer = () => {
             {/* Our own Video */}
             {
               stream && (
-                <paper className={classes.paper}>
+                <Paper className={classes.paper}>
                 <Grid item xs={12} md={6}>
                     <Typography variant="h5" gutterBottom >{name || 'Name'}</Typography>
                     <video playsInline muted ref={myVideo} autoPlay className={classes.video} />
                 </Grid>
-                 </paper>
+                 </Paper>
               )
             }
 
@@ -68,17 +73,22 @@ const Videoplayer = () => {
 
               {
                 callAccepted && !callEnded && (
-                  <paper className={classes.paper}>
+                  <Paper className={classes.paper}>
                   <Grid item xs={12} md={6}>
                       <Typography variant="h5" gutterBottom >{call.name || 'Name'} </Typography>
-                      <video playsInline muted ref={userVideo} autoPlay className={classes.video} />
+                      <video playsInline ref={userVideo} autoPlay className={classes.video} />
                   </Grid>
-              </paper>
+              </Paper>
                 )
               }
 
             
         </Grid>
     );
-}
+};
 export default Videoplayer;
+
+
+
+
+
